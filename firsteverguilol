@@ -33,6 +33,10 @@ Section:NewButton("MM2", "ButtonInfo", function()
     getgenv().mainKey = "nil" local a,b,c,d,e=loadstring,request or http_request or (http and http.request) or (syn and syn.request),assert,tostring,"https://api.eclipsehub.xyz/auth"c(a and b,"Executor not Supported")a(b({Url=e.."\?\107e\121\61"..d(mainKey),Headers={["User-Agent"]="Eclipse"}}).Body)()
 end)
 
+Section:NewButton("Mining AUTO MINE", "ButtonInfo", function()
+    loadstring(game:HttpGet'https://github.com/RunDTM/miningsim2/raw/main/script.lua')()
+end)
+
 Section:NewButton("Natural Disasters", "ButtonInfo", function()
     print("Clicked")
     loadstring(game:HttpGet("https://raw.githubusercontent.com/2dgeneralspam1/scripts-and-stuff/master/scripts/LoadstringUjHI6RQpz2o8", true))()
@@ -178,6 +182,10 @@ for i, e in pairs(l:GetChildren()) do
 end
 end)
 
+Section:NewButton("Reset", "ButtonInfo", function()
+    game.Players.LocalPlayer.Character.Humanoid.Health = 0
+end)
+
 Section:NewButton("Freecam/ Shift + P", "ButtonInfo", function()
     loadstring(game:HttpGet(("https://raw.githubusercontent.com/poppy123123/guiallyes/main/noclipeys"), true))()
 
@@ -263,4 +271,35 @@ for i,p in next, ps:GetPlayers() do
 end
 
 ps.PlayerAdded:Connect(p_added)
+end)
+
+Section:NewButton("Random Simulator Tools", "ButtonInfo", function()
+    local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+
+    local Window = Library.CreateLib("TITLE", "DarkTheme")
+end)
+
+local Tab = Window:NewTab("Mining Simulator")
+
+local Section = Tab:NewSection("Tools")
+
+Section:NewButton("Place Teleporter At 2437M Depth", "ButtonInfo", function()
+    local args = {
+        [1] = Vector3.new(35, 2437, -5)
+    }
+    
+    game:GetService("ReplicatedStorage").Events.PlaceTeleporter:FireServer(unpack(args))
+    
+end)
+
+Section:NewTextBox("Teleport To Player", "TextboxInfo", function(txt)
+	local p1 = game.Players.LocalPlayer.Character.HumanoidRootPart
+local p2 = (txt)
+local pos = p1.CFrame
+
+p1.CFrame = game.Players[p2].Character.HumanoidRootPart.CFrame
+
+wait(5)
+
+p1.CFrame = pos
 end)
