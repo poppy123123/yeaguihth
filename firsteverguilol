@@ -1,6 +1,6 @@
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
 
-local Window = Library.CreateLib("Modifiers ; By MythicalFrostz", "Ocean")
+local Window = Library.CreateLib("Helpers V.3", colors)
 
 local Tab = Window:NewTab("Local Player")
 
@@ -334,3 +334,27 @@ wait(5)
 p1.CFrame = pos
 end)
 
+Section:NewDropdown("DropdownText", "DropdownInf", {"Option 1", "Option 2", "Option 3"}, function(currentOption)
+    print(currentOption)
+end)
+
+local Tab = Window:NewTab("Gui")
+
+local Section = Tab:NewSection("Settings")
+
+Section:NewButton("Update Gui", "ButtonInfo", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/poppy123123/yeaguihth/main/firsteverguilol"))()
+end)
+
+Section:NewColorPicker("Color", "Color Info", Color3.fromRGB(0,0,0), function(color)
+    print(color)
+    -- Second argument is the default color
+end)
+
+local colors = {
+    SchemeColor = Color3.fromRGB(0,255,255),
+    Background = Color3.fromRGB(0, 0, 0),
+    Header = Color3.fromRGB(0, 0, 0),
+    TextColor = Color3.fromRGB(255,255,255),
+    ElementColor = Color3.fromRGB(20, 20, 20)
+}
